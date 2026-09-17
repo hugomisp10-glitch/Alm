@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Castelo de Almourol & Ribatejo — Roteiro de 1 Dia</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Almourol">
+<meta name="theme-color" content="#1f2e1a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --night:#1f2e1a; --night-2:#2b3e22;
+    --cream:#fffaf1; --cream-2:#f3e9d2;
+    --gold:#c9a24a; --gold-2:#e3c374;
+    --wine:#8a3b2b; --wine-2:#6c2c1f;
+    --pine:#3d7a52;
+    --ink:#1a2b1f; --ink-soft:#48594d;
+    --text-light:#f0f2e8; --text-muted:#c9d0bd;
+    --radius:16px;
+    --shadow:0 12px 32px rgba(10,20,8,.30);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;scroll-behavior:smooth;}
+  body{
+    background:
+      radial-gradient(1200px 600px at 10% -10%, #2f4526 0%, transparent 60%),
+      radial-gradient(1000px 500px at 100% 0%, #2b3e22 0%, transparent 55%),
+      var(--night);
+    color:var(--text-light);
+    font-family:'Public Sans', system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:70px;
+    font-size:15.5px;
+    line-height:1.6;
+  }
+  h1,h2,h3,.serif{font-family:'Fraunces', Georgia, serif;}
+  a{color:var(--gold-2);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  :focus-visible{outline:2px solid var(--gold-2);outline-offset:2px;}
+  img{display:block;max-width:100%;}
+  button{font-family:inherit;cursor:pointer;}
+
+  .hero{
+    position:relative; min-height:240px;
+    display:flex;flex-direction:column;justify-content:flex-end;
+    padding:26px 20px 28px; overflow:hidden;
+    background:
+      linear-gradient(180deg, rgba(31,46,26,.10) 0%, rgba(20,30,17,.55) 55%, var(--night) 100%),
+      radial-gradient(120% 140% at 15% 0%, #c9a24a 0%, #8a3b2b 32%, #2b4a3a 62%, #1f2e1a 100%);
+  }
+  .hero .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-2);font-weight:700;margin-bottom:10px;text-shadow:0 2px 8px rgba(0,0,0,.5);}
+  .hero h1{font-size:clamp(26px,7vw,38px);font-weight:700;line-height:1.1;margin:0 0 10px;color:#fff;text-shadow:0 4px 18px rgba(0,0,0,.55);}
+  .hero h1 em{font-style:italic;color:var(--gold-2);}
+  .hero p.sub{max-width:520px;margin:0 0 16px;color:#f6f0e2;font-size:14.5px;line-height:1.55;text-shadow:0 2px 10px rgba(0,0,0,.5);}
+  .hero .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(31,46,26,.55);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:8px 16px;font-size:13px;color:var(--text-light);}
+  .garland{height:6px;width:100%;background:repeating-linear-gradient(90deg,var(--gold-2) 0 8px, transparent 8px 20px);opacity:.55;}
+
+  .overview{max-width:760px;margin:0 auto;padding:16px 16px 6px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+  .ov-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:12px 8px;text-align:center;}
+  .ov-card .n{font-family:'Fraunces',serif;font-size:19px;color:var(--gold-2);font-weight:600;}
+  .ov-card .l{font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-top:2px;}
+
+  .tabbar-wrap{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,var(--night) 78%, rgba(31,46,26,0));padding:14px 0 10px;}
+  .tabbar{display:flex;gap:8px;overflow-x:auto;padding:0 16px 4px;scrollbar-width:none;}
+  .tabbar::-webkit-scrollbar{display:none;}
+  .tab{flex:none;font-family:'Public Sans',sans-serif;font-size:13.5px;font-weight:700;padding:10px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.05);color:var(--text-light);white-space:nowrap;transition:all .18s ease;}
+  .tab.active{background:var(--gold);border-color:var(--gold);color:#3a2907;}
+
+  .panel{display:none;max-width:760px;margin:0 auto;padding:10px 16px 34px;animation:fade .3s ease;}
+  .panel.active{display:block;}
+  @keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+
+  .day-head{margin:6px 0 18px;}
+  .day-head .tag{display:inline-block;background:var(--wine);color:#fff;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 11px;border-radius:7px;margin-bottom:9px;}
+  .day-head h2{font-size:23px;margin:0 0 5px;color:#fff;}
+  .day-head p{margin:0 0 10px;color:var(--text-muted);font-size:14px;}
+
+  .banner{position:relative;border-radius:14px;overflow:hidden;height:110px;display:flex;align-items:flex-end;margin-bottom:14px;box-shadow:var(--shadow);}
+  .banner .bg-icon{position:absolute;right:-8px;top:-14px;font-size:88px;opacity:.28;transform:rotate(8deg);filter:drop-shadow(0 6px 10px rgba(0,0,0,.25));}
+  .banner .bcap{position:relative;z-index:1;padding:10px 14px;font-weight:800;font-size:14px;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.5);}
+  .banner .bcap small{display:block;font-weight:600;font-size:10.5px;opacity:.9;text-transform:uppercase;letter-spacing:.04em;}
+  .banner.b-mix{background:radial-gradient(120% 140% at 15% 0%, #e3c374 0%, #c9a24a 30%, #8a3b2b 65%, #1f2e1a 100%);}
+  .banner.b-river{background:radial-gradient(120% 140% at 15% 0%, #6fc4a8 0%, #3d7a52 35%, #2b3e22 70%, #1f2e1a 100%);}
+  .banner.small{height:90px;}
+
+  .timeline{position:relative;padding-left:24px;}
+  .timeline:before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--gold),var(--wine));opacity:.5;}
+  .item{position:relative;margin-bottom:16px;}
+  .item:before{content:"";position:absolute;left:-24px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--gold-2);border:2px solid var(--night);}
+  .item.transport:before{background:#9dc9e8;}
+  .item.food:before{background:var(--wine-2);}
+  .item.tip:before{background:var(--pine);}
+
+  .card{background:var(--cream);color:var(--ink);border-radius:var(--radius);padding:15px 16px;box-shadow:var(--shadow);}
+  .card .row{display:flex;align-items:center;gap:9px;margin-bottom:5px;}
+  .card .time{font-family:'Fraunces',serif;font-weight:700;font-size:16px;color:var(--wine);white-space:nowrap;}
+  .card .title{font-weight:700;font-size:15.5px;flex:1;color:var(--ink);}
+  .card p{margin:5px 0 0;font-size:14px;line-height:1.58;color:var(--ink-soft);}
+
+  .block{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:18px 17px 16px;margin-bottom:16px;}
+  .block h3{font-size:17px;margin:0 0 4px;color:var(--gold-2);display:flex;align-items:center;gap:9px;}
+  .block > p.lead{font-size:13.5px;color:var(--text-muted);margin:0 0 14px;}
+
+  .place-list{background:var(--cream);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);}
+  .place{display:flex;align-items:flex-start;gap:11px;padding:12px 13px;border-bottom:1px solid #ece0c5;color:var(--ink);}
+  .place:last-child{border-bottom:none;}
+  .place .ptext{flex:1;min-width:0;}
+  .place .pn{font-weight:700;font-size:14.5px;color:var(--ink);}
+  .place .pd{font-size:13px;color:var(--ink-soft);margin-top:2px;line-height:1.5;}
+  .place .pmeta{display:flex;flex-direction:column;align-items:flex-end;gap:3px;flex:none;padding-top:1px;}
+  .place .pp{font-size:11.5px;color:var(--wine);white-space:nowrap;font-weight:700;}
+  .place .pr{font-size:11px;color:#3a7a5c;white-space:nowrap;font-weight:700;background:#e2f2e8;padding:2px 7px;border-radius:999px;}
+
+  .note{background:rgba(201,162,74,.14);border:1px solid rgba(201,162,74,.4);border-radius:11px;padding:11px 13px;font-size:13.3px;color:#f3d99a;line-height:1.55;margin-top:10px;}
+  .note b{color:var(--gold-2);}
+
+  .map-frame{width:100%;height:280px;border:0;border-radius:12px;box-shadow:var(--shadow);}
+  .map-caption{font-size:12.5px;color:var(--text-muted);margin:8px 0 18px;text-align:center;}
+
+  .links-grid{display:grid;gap:8px;}
+  .link-row{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--cream);border-radius:11px;padding:12px 14px;color:var(--ink);box-shadow:var(--shadow);}
+  .link-row .ln{font-weight:700;font-size:14px;}
+  .link-row .ld{font-size:12px;color:var(--ink-soft);margin-top:1px;}
+  .link-row a.go{font-size:12.5px;font-weight:800;color:var(--wine);white-space:nowrap;}
+
+  .checklist{list-style:none;padding:0;margin:0;}
+  .checklist li{padding:9px 0 9px 26px;position:relative;font-size:14px;color:var(--text-light);border-bottom:1px solid rgba(255,255,255,.08);}
+  .checklist li:last-child{border-bottom:none;}
+  .checklist li:before{content:"✓";position:absolute;left:0;top:9px;color:var(--pine);background:#dff0e6;width:17px;height:17px;border-radius:5px;font-size:11.5px;line-height:17px;text-align:center;font-weight:800;}
+
+  footer{text-align:center;color:#9aab8a;font-size:11.5px;padding:24px 16px 0;line-height:1.6;}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="eyebrow">1 dia · Saída de manhã · Regresso à noite</div>
+  <h1>Castelo de <em>Almourol</em> & Ribatejo</h1>
+  <p class="sub">Vila Nova da Barquinha → Castelo de Almourol → Constância → Tomar — o Tejo, os Templários e Camões, tudo num só dia.</p>
+  <div class="badge">🚗 Roteiro pensado para automóvel próprio</div>
+</div>
+<div class="garland"></div>
+
+<div class="overview">
+  <div class="ov-card"><div class="n">~14h</div><div class="l">Duração</div></div>
+  <div class="ov-card"><div class="n">4</div><div class="l">Localidades</div></div>
+  <div class="ov-card"><div class="n">~260km</div><div class="l">Percurso total</div></div>
+  <div class="ov-card"><div class="n">🏰</div><div class="l">Templários & rio Tejo</div></div>
+</div>
+
+<div class="tabbar-wrap">
+  <div class="tabbar" id="tabbar">
+    <div class="tab active" data-panel="roteiro">Roteiro do Dia</div>
+    <div class="tab" data-panel="ver">Ver</div>
+    <div class="tab" data-panel="comer">Comer</div>
+    <div class="tab" data-panel="mapas">Mapas</div>
+    <div class="tab" data-panel="pratico">Prático</div>
+  </div>
+</div>
+
+<!-- =================== ROTEIRO DO DIA =================== -->
+<div class="panel active" id="roteiro">
+  <div class="day-head">
+    <div class="banner b-mix"><span class="bg-icon">🏰</span><div class="bcap"><small>Um dia</small>Lisboa → Almourol → Constância → Tomar → Lisboa</div></div>
+    <div class="tag">Roteiro</div>
+    <h2>Do Tejo Templário à cidade de Tomar</h2>
+    <p>Saída de Lisboa por volta das 08h30, jantar incluído no roteiro, regresso previsto por volta das 23h00. Horários flexíveis — ajustem ao vosso ritmo.</p>
+  </div>
+
+  <div class="timeline">
+    <div class="item transport"><div class="card">
+      <div class="row"><span class="time">08:30</span><span class="title">Saída de Lisboa</span></div>
+      <p>Viagem pela A1 até Vila Nova da Barquinha — ~1h20 de carro (~130km).</p>
+    </div></div>
+
+    <div class="item normal"><div class="card">
+      <div class="row"><span class="time">09:50</span><span class="title">Cais de embarque — Praia do Ribatejo</span></div>
+      <p>Chegada a Vila Nova da Barquinha, estacionamento junto ao cais e compra do bilhete para a travessia de barco até ao castelo.</p>
+    </div></div>
+
+    <div class="item transport"><div class="card">
+      <div class="row"><span class="time">10:00</span><span class="title">Castelo de Almourol</span></div>
+      <p>Travessia de barco (obrigatória, ~5 min) até à ilhota e visita ao castelo templário do séc. XII. Duração total (barco + visita): ~1h15.</p>
+    </div></div>
+
+    <div class="item normal"><div class="card">
+      <div class="row"><span class="time">11:15</span><span class="title">CITA — Centro de Interpretação Templária</span></div>
+      <p>Pequeno centro interpretativo em Vila Nova da Barquinha, contextualiza a história do castelo e da Ordem do Templo. Duração: ~30–40 min.</p>
+    </div></div>
+
+    <div class="item normal"><div class="card">
+      <div class="row"><span class="time">12:00</span><span class="title">Constância — Vila dos Poetas</span></div>
+      <p>Passeio pela vila onde Camões viveu — Casa Memória de Camões, Horto de Camões e a confluência dos rios Tejo e Zêzere. Duração: ~1h.</p>
+    </div></div>
+
+    <div class="item food"><div class="card">
+      <div class="row"><span class="time">13:15</span><span class="title">Almoço em Constância ou Tomar</span></div>
+      <p>Ver sugestões na secção "Comer". Duração: ~1h15.</p>
+    </div></div>
+
+    <div class="item transport"><div class="card">
+      <div class="row"><span class="time">14:45</span><span class="title">Tomar — chegada</span></div>
+      <p>~20 min de carro desde Constância. Estacionamento junto ao centro histórico ou ao Parque do Mouchão.</p>
+    </div></div>
+
+    <div class="item normal"><div class="card">
+      <div class="row"><span class="time">15:00</span><span class="title">Convento de Cristo</span></div>
+      <p>Património Mundial da UNESCO, sede da Ordem de Cristo — a icónica Janela Manuelina, claustros e a charola templária. Duração: ~1h30.</p>
+    </div></div>
+
+    <div class="item normal"><div class="card">
+      <div class="row"><span class="time">16:45</span><span class="title">Centro histórico de Tomar</span></div>
+      <p>Sinagoga de Tomar (Museu Abraão Zacuto), Castelo de Tomar, Igreja de São João Baptista e o Parque do Mouchão à beira-rio. Duração: ~1h.</p>
+    </div></div>
+
+    <div class="item tip"><div class="card">
+      <div class="row"><span class="time">17:45</span><span class="title">Miradouro da Barragem de Castelo de Bode (opcional)</span></div>
+      <p>Pequeno desvio (~15 min) para uma vista sobre a albufeira, se ainda houver tempo e luz do dia. Duração: ~20 min.</p>
+    </div></div>
+
+    <div class="item tip"><div class="card">
+      <div class="row"><span class="time">18:15</span><span class="title">Tempo livre em Tomar</span></div>
+      <p>Passeio tranquilo junto ao Parque do Mouchão e ao rio Nabão, ou uma pausa para café, enquanto esperam pela hora do jantar. Duração: ~45 min.</p>
+    </div></div>
+
+    <div class="item food"><div class="card">
+      <div class="row"><span class="time">19:00</span><span class="title">Jantar em Tomar</span></div>
+      <p>Ver sugestões na secção "Comer" — boa altura para experimentar as especialidades ribatejanas sem pressa. Duração: ~1h45.</p>
+    </div></div>
+
+    <div class="item transport"><div class="card">
+      <div class="row"><span class="time">20:45</span><span class="title">Regresso a Lisboa</span></div>
+      <p>Via A1, ~1h20–1h30. Chegada prevista por volta das 22h30–23h00.</p>
+    </div></div>
+  </div>
+
+  <div class="note">🌙 <b>Regresso noturno</b> — este roteiro inclui o jantar em Tomar antes de voltar a Lisboa, pelo que a chegada só acontece por volta das 23h. Se preferirem voltar mais cedo, o jantar pode ser dispensado e o regresso antecipado para depois do centro histórico de Tomar (~17h45, chegada por volta das 19h30).</div>
+
+  <div class="note">🚗 <b>Percurso pensado para automóvel</b> — a zona não tem boa cobertura de transporte público entre localidades. Há comboios até Tomar (linha do Norte/Entroncamento) e até Entroncamento, mas Almourol e Constância exigem carro ou táxi para completar o roteiro num só dia.</div>
+</div>
+
+<!-- =================== VER =================== -->
+<div class="panel" id="ver">
+  <div class="day-head">
+    <div class="banner b-river small"><span class="bg-icon">🛶</span><div class="bcap"><small>Atrações</small>Pontos de interesse na rota</div></div>
+    <div class="tag">Atrações</div>
+    <h2>O que ver pelo caminho</h2>
+    <p>Organizado pela ordem do roteiro — de Almourol a Tomar</p>
+  </div>
+
+  <div class="block">
+    <h3>🏰 Almourol & Vila Nova da Barquinha</h3>
+    <div class="place-list" id="list-almourol"></div>
+  </div>
+
+  <div class="block">
+    <h3>📜 Constância</h3>
+    <div class="place-list" id="list-constancia"></div>
+  </div>
+
+  <div class="block">
+    <h3>🏛️ Tomar</h3>
+    <div class="place-list" id="list-tomar"></div>
+  </div>
+
+  <div class="block">
+    <h3>🌊 Castelo de Bode & arredores</h3>
+    <div class="place-list" id="list-castelobode"></div>
+  </div>
+</div>
+
+<!-- =================== COMER =================== -->
+<div class="panel" id="comer">
+  <div class="day-head">
+    <div class="banner b-mix small"><span class="bg-icon">🍽️</span><div class="bcap"><small>Gastronomia</small>Ribatejo à mesa</div></div>
+    <div class="tag">Gastronomia</div>
+    <h2>Onde comer, por tipo de cozinha</h2>
+    <p>Preços médios por pessoa — confirmem sempre avaliações atualizadas antes de reservar</p>
+  </div>
+
+  <div class="block">
+    <h3>🍲 Tradicional Portuguesa</h3>
+    <div class="place-list" id="list-tradicional"></div>
+  </div>
+
+  <div class="block">
+    <h3>🍢 Petiscos & Casual</h3>
+    <div class="place-list" id="list-petiscos"></div>
+  </div>
+
+  <div class="block">
+    <h3>🐟 Peixe do Rio & Especialidades</h3>
+    <div class="place-list" id="list-peixerio"></div>
+  </div>
+
+  <div class="block">
+    <h3>🍰 Doces conventuais & cafés</h3>
+    <div class="place-list" id="list-doces"></div>
+  </div>
+
+  <div class="note">💡 <b>Especialidades da região:</b> sável e enguia do Tejo (peixe de rio, sazonal), fataça na telha, sopa da pedra (originária de Almeirim, muito presente no Ribatejo) e queijadas/doces conventuais de Tomar.</div>
+</div>
+
+<!-- =================== MAPAS =================== -->
+<div class="panel" id="mapas">
+  <div class="day-head">
+    <div class="banner b-mix small"><span class="bg-icon">🗺️</span><div class="bcap"><small>Orientação</small>O percurso no mapa</div></div>
+    <div class="tag">Orientação</div>
+    <h2>Mapas do percurso</h2>
+  </div>
+
+  <div class="block">
+    <h3>🏰 Castelo de Almourol</h3>
+    <iframe class="map-frame" loading="lazy" src="https://maps.google.com/maps?q=Castelo+de+Almourol&z=14&output=embed"></iframe>
+    <p class="map-caption">~1h20 de carro desde Lisboa via A1, saída em Vila Nova da Barquinha.</p>
+  </div>
+
+  <div class="block">
+    <h3>📜 Constância</h3>
+    <iframe class="map-frame" loading="lazy" src="https://maps.google.com/maps?q=Constancia+Portugal&z=14&output=embed"></iframe>
+    <p class="map-caption">~10 min de Vila Nova da Barquinha.</p>
+  </div>
+
+  <div class="block">
+    <h3>🏛️ Tomar</h3>
+    <iframe class="map-frame" loading="lazy" src="https://maps.google.com/maps?q=Convento+de+Cristo+Tomar&z=14&output=embed"></iframe>
+    <p class="map-caption">~20 min de Constância.</p>
+  </div>
+
+  <div class="block">
+    <h3>🌊 Barragem de Castelo de Bode</h3>
+    <iframe class="map-frame" loading="lazy" src="https://maps.google.com/maps?q=Barragem+de+Castelo+de+Bode&z=13&output=embed"></iframe>
+    <p class="map-caption">~15 min de Tomar, a caminho do regresso.</p>
+  </div>
+</div>
+
+<!-- =================== PRÁTICO =================== -->
+<div class="panel" id="pratico">
+  <div class="day-head">
+    <div class="banner b-mix small"><span class="bg-icon">🧭</span><div class="bcap"><small>Referência</small>Bilhetes e dicas</div></div>
+    <div class="tag">Referência</div>
+    <h2>Guia prático</h2>
+  </div>
+
+  <div class="block">
+    <h3>⛵ Castelo de Almourol</h3>
+    <ul class="checklist">
+      <li>A travessia de barco é obrigatória e está incluída no bilhete — ~4–6€ por pessoa</li>
+      <li>Horário de verão (mar–out): 09h30–13h00 e 14h30–18h30; horário de inverno mais reduzido — confirmar sempre antes de ir</li>
+      <li>Encerra à segunda-feira entre outubro e fevereiro</li>
+      <li>Em períodos de seca extrema o nível do rio pode baixar muito — a travessia a pé é proibida por segurança, mesmo que pareça possível</li>
+      <li>Estacionamento gratuito junto ao cais em Vila Nova da Barquinha</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <h3>🏛️ Convento de Cristo (Tomar)</h3>
+    <ul class="checklist">
+      <li>Bilhete de entrada ~6€ (verificar isenções e bilhete conjunto com outros monumentos)</li>
+      <li>Reserva de bilhete online recomendada em fins de semana e época alta</li>
+      <li>Boa parte do percurso tem escadas e pisos irregulares — calçado confortável</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <h3>🚌🚆 Sem carro (alternativa parcial)</h3>
+    <ul class="checklist">
+      <li>Comboios da CP (linha do Norte) ligam Lisboa a Tomar e a Entroncamento com boa frequência</li>
+      <li>Almourol e Constância não têm estação própria — a estação mais próxima é Barquinha ou Entroncamento, seguida de táxi</li>
+      <li>Sem carro, o mais realista é escolher entre <b>Tomar</b> (fácil de comboio) ou <b>Almourol + Constância</b> (precisam de táxi/tour), em vez de tentar os três no mesmo dia</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <h3>🎟️ Bilhetes & horários</h3>
+    <div class="links-grid">
+      <div class="link-row"><div><div class="ln">Câmara Municipal de Vila Nova da Barquinha</div><div class="ld">Horários e preços atualizados do Castelo de Almourol</div></div><a class="go" href="https://www.cm-vnbarquinha.pt" target="_blank" rel="noopener">Abrir ↗</a></div>
+      <div class="link-row"><div><div class="ln">Convento de Cristo — Direção-Geral do Património Cultural</div><div class="ld">Bilhetes e horários oficiais</div></div><a class="go" href="https://www.conventocristo.gov.pt" target="_blank" rel="noopener">Abrir ↗</a></div>
+      <div class="link-row"><div><div class="ln">CP — Comboios de Portugal</div><div class="ld">Horários Lisboa ↔ Tomar / Entroncamento</div></div><a class="go" href="https://www.cp.pt" target="_blank" rel="noopener">Abrir ↗</a></div>
+    </div>
+  </div>
+
+  <div class="block">
+    <h3>🧳 Dicas rápidas</h3>
+    <ul class="checklist">
+      <li>Chapéu e água — várias paragens são ao ar livre e sem sombra (cais de Almourol, miradouros)</li>
+      <li>Calçado confortável para calçada portuguesa e escadas no Convento de Cristo</li>
+      <li>Levar dinheiro/trocos para o bilhete do barco em Almourol, caso não aceitem cartão</li>
+      <li>Reservar almoço com antecedência aos fins de semana, sobretudo em Tomar</li>
+      <li>Verificar sempre horários atualizados antes de sair — o Castelo de Almourol tem horários sazonais e pode fechar por condições do rio</li>
+    </ul>
+  </div>
+</div>
+
+<footer>Roteiro de 1 dia · Castelo de Almourol, Constância e Tomar · horários e preços a confirmar mais perto da data</footer>
+
+<script>
+const PLACES = {
+  'list-almourol': [
+    {n:'Castelo de Almourol', d:'Fortaleza templária do séc. XII numa ilhota do Tejo, um dos monumentos medievais mais fotografados de Portugal'},
+    {n:'CITA — Centro de Interpretação Templária de Almourol', d:'Contextualiza a história do castelo e da Ordem do Templo, em Vila Nova da Barquinha'},
+    {n:'Praia do Ribatejo', d:'Zona ribeirinha junto ao cais de embarque para o castelo'},
+    {n:'Aldeia do Mato (praia fluvial)', d:'Praia fluvial próxima, com Bandeira Azul, boa opção se sobrar tempo'},
+  ],
+  'list-constancia': [
+    {n:'Casa Memória de Camões', d:'Homenagem ao poeta, que viveu em Constância — a "Vila dos Poetas"'},
+    {n:'Horto de Camões', d:'Jardim ribeirinho na confluência dos rios Tejo e Zêzere'},
+    {n:'Confluência do Tejo e Zêzere', d:'Ponto onde os dois rios se encontram, vista a partir do centro da vila'},
+    {n:'Centro Ciência Viva de Constância', d:'Espaço interativo dedicado ao rio e à natureza, boa opção em família'},
+  ],
+  'list-tomar': [
+    {n:'Convento de Cristo', d:'Património Mundial UNESCO, sede da Ordem de Cristo — Janela Manuelina icónica'},
+    {n:'Sinagoga de Tomar (Museu Abraão Zacuto)', d:'Uma das sinagogas medievais mais bem preservadas da Europa'},
+    {n:'Castelo de Tomar', d:'Fortificação templária que envolve o Convento de Cristo'},
+    {n:'Parque do Mouchão', d:'Ilha-jardim no rio Nabão, no centro da cidade — ótimo para uma pausa'},
+    {n:'Igreja de São João Baptista', d:'Na praça principal, fachada manuelina e interior gótico-renascentista'},
+  ],
+  'list-castelobode': [
+    {n:'Barragem de Castelo de Bode', d:'Grande albufeira no rio Zêzere, paisagem verde e miradouros'},
+    {n:'Praias fluviais da albufeira', d:'Várias praias fluviais espalhadas pela margem, boas para um banho no verão'},
+    {n:'Castelo de Abrantes', d:'Pequeno desvio adicional se sobrar tempo, vista sobre o vale do Tejo'},
+  ],
+};
+
+const FOOD_TRADICIONAL = [
+ {n:'Restaurante Tabuleiro', d:'Tomar — junto à praça principal, ambiente familiar e boa comida tradicional', p:'~15–20€', r:'Bem avaliado'},
+ {n:'Calça Perra', d:'Tomar — sala elegante ou pátio intimista, especialidade em peixe bem apresentado', p:'~18–25€', r:'Muito recomendado'},
+ {n:'Restaurante em Constância', d:'Vários pequenos restaurantes familiares junto ao rio, cozinha caseira ribatejana', p:'~13–18€', r:'Bem avaliado'},
+];
+const FOOD_PETISCOS = [
+ {n:'Casa das Ratas', d:'Tomar — antiga adega reconvertida em petiscaria, ambiente único entre tonéis de vinho', p:'~12–18€', r:'Muito recomendado'},
+ {n:'La Bella', d:'Tomar — pizzaria e cozinha italiana informal, popular entre os locais', p:'~12–18€', r:'Bem avaliado'},
+];
+const FOOD_PEIXERIO = [
+ {n:'Marisqueiras/tabernas junto ao Tejo (Barquinha/Constância)', d:'Pratos sazonais de sável e enguia do rio, quando em época — perguntem no local', p:'~15–25€', r:'Especialidade regional'},
+ {n:'Restaurantes de sopa da pedra na região', d:'Prato típico do Ribatejo (originário de Almeirim), presente em vários restaurantes da zona', p:'~8–12€ (prato)', r:'Especialidade regional'},
+];
+const FOOD_DOCES = [
+ {n:'Amor Lusitano', d:'Tomar — parte café, parte wine bar, doces conventuais portugueses', p:'~5–10€', r:'Muito recomendado'},
+ {n:'Pastelarias do centro de Tomar', d:'Queijadas de Tomar e outros doces conventuais típicos da região', p:'~2–5€/unidade', r:'Especialidade regional'},
+];
+
+function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function renderPlaces(){
+  Object.keys(PLACES).forEach(id => {
+    const el = document.getElementById(id);
+    if(!el) return;
+    el.innerHTML = PLACES[id].map(it => `
+      <div class="place">
+        <div class="ptext"><div class="pn">${esc(it.n)}</div><div class="pd">${esc(it.d)}</div></div>
+      </div>`).join('');
+  });
+}
+
+function renderFood(containerId, items){
+  const el = document.getElementById(containerId);
+  if(!el) return;
+  el.innerHTML = items.map(it => `
+    <div class="place">
+      <div class="ptext"><div class="pn">${esc(it.n)}</div><div class="pd">${esc(it.d)}</div></div>
+      <div class="pmeta"><span class="pp">${esc(it.p)}</span><span class="pr">${esc(it.r)}</span></div>
+    </div>`).join('');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderPlaces();
+  renderFood('list-tradicional', FOOD_TRADICIONAL);
+  renderFood('list-petiscos', FOOD_PETISCOS);
+  renderFood('list-peixerio', FOOD_PEIXERIO);
+  renderFood('list-doces', FOOD_DOCES);
+
+  document.querySelectorAll('#tabbar > .tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('#tabbar > .tab').forEach(t => t.classList.toggle('active', t===tab));
+      document.querySelectorAll('.panel').forEach(p => p.classList.toggle('active', p.id===tab.dataset.panel));
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+  });
+});
+</script>
+
+</body>
+</html>
