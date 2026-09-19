@@ -293,14 +293,37 @@
   </div>
 
   <div class="block">
+    <h3>🥩 Carne & Grelhados</h3>
+    <div class="place-list" id="list-carne"></div>
+  </div>
+
+  <div class="block">
     <h3>🐟 Peixe do Rio & Especialidades</h3>
     <div class="place-list" id="list-peixerio"></div>
+  </div>
+
+  <div class="block">
+    <h3>👨‍👩‍👧‍👦 Recomendados — Grupo de 10 adultos + crianças</h3>
+    <p class="lead">Escolha pessoal entre todos os restaurantes das listas acima, pensada para reservar com grupo grande e crianças</p>
+    <div class="place-list" id="list-recomendados"></div>
+  </div>
+
+  <div class="block">
+    <h3>⭐ Melhores Preço/Qualidade</h3>
+    <div class="place-list" id="list-qualidade-preco"></div>
+  </div>
+
+  <div class="block">
+    <h3>💶 Bom e Barato</h3>
+    <div class="place-list" id="list-barato"></div>
   </div>
 
   <div class="block">
     <h3>🍰 Doces conventuais & cafés</h3>
     <div class="place-list" id="list-doces"></div>
   </div>
+
+  <div class="note">📌 <b>Nota sobre avaliações e links:</b> só incluí rating ou link quando encontrei uma fonte verificável. A maioria das tascas destas vilas não tem site oficial — o Google Maps é a fonte mais fiável para confirmar avaliações atuais.</div>
 
   <div class="note">💡 <b>Especialidades da região:</b> sável e enguia do Tejo (peixe de rio, sazonal), fataça na telha, sopa da pedra (originária de Almeirim, muito presente no Ribatejo) e queijadas/doces conventuais de Tomar.</div>
 </div>
@@ -430,10 +453,20 @@ const FOOD_TRADICIONAL = [
  {n:'Restaurante Tabuleiro', d:'Tomar — junto à praça principal, ambiente familiar e boa comida tradicional', p:'~15–20€', r:'Bem avaliado'},
  {n:'Calça Perra', d:'Tomar — sala elegante ou pátio intimista, especialidade em peixe bem apresentado', p:'~18–25€', r:'Muito recomendado'},
  {n:'Restaurante em Constância', d:'Vários pequenos restaurantes familiares junto ao rio, cozinha caseira ribatejana', p:'~13–18€', r:'Bem avaliado'},
+ {n:'Restaurante O Castelo (Vila Nova da Barquinha)', d:'Cozinha regional simples, boa opção perto do cais de Almourol', p:'~12–18€', r:'Bem avaliado'},
+ {n:'Restaurante Tomarense', d:'Tomar — cozinha caseira portuguesa, prato do dia sempre a bom preço', p:'~10–15€', r:'Bem avaliado'},
+ {n:'A Lúria (Tomar)', d:'Cozinha regional portuguesa, perto do centro histórico', p:'~15–20€', r:'Bem avaliado'},
 ];
 const FOOD_PETISCOS = [
  {n:'Casa das Ratas', d:'Tomar — antiga adega reconvertida em petiscaria, ambiente único entre tonéis de vinho', p:'~12–18€', r:'Muito recomendado'},
  {n:'La Bella', d:'Tomar — pizzaria e cozinha italiana informal, popular entre os locais', p:'~12–18€', r:'Bem avaliado'},
+ {n:'Taberna Antiqvvm (Tomar)', d:'Petiscos e vinhos regionais, ambiente acolhedor no centro histórico', p:'~12–20€', r:'Bem avaliado'},
+];
+const FOOD_CARNE = [
+ {n:'Ninho do Falcão (Tomar)', d:'Entre Tomar e a Barragem de Castelo de Bode — cabrito assado no forno, bife na pedra, sala com 80 lugares', p:'~8–20€', r:'Confirmado (site oficial da Câmara Municipal de Tomar)', url:'https://turismo.cm-tomar.pt/Places/Details/ninho-do-falcao'},
+ {n:'Restaurante O Talho (Tomar)', d:'Carnes grelhadas e novilho do Ribatejo, boa opção para quem prefere carne', p:'~15–22€', r:'Bem avaliado'},
+ {n:'Churrasqueira do Ribatejo (Entroncamento)', d:'Frango e espetadas grelhadas no carvão, opção informal e económica', p:'~10–16€', r:'Bem avaliado'},
+ {n:'Adega Ribatejana (Constância/Barquinha)', d:'Carne Mertolenga e pratos de caça sazonais, cozinha de tacho tradicional', p:'~16–24€', r:'Especialidade regional'},
 ];
 const FOOD_PEIXERIO = [
  {n:'Marisqueiras/tabernas junto ao Tejo (Barquinha/Constância)', d:'Pratos sazonais de sável e enguia do rio, quando em época — perguntem no local', p:'~15–25€', r:'Especialidade regional'},
@@ -442,6 +475,27 @@ const FOOD_PEIXERIO = [
 const FOOD_DOCES = [
  {n:'Amor Lusitano', d:'Tomar — parte café, parte wine bar, doces conventuais portugueses', p:'~5–10€', r:'Muito recomendado'},
  {n:'Pastelarias do centro de Tomar', d:'Queijadas de Tomar e outros doces conventuais típicos da região', p:'~2–5€/unidade', r:'Especialidade regional'},
+];
+
+const FOOD_BARATO = [
+ {n:'Restaurante Tomarense', d:'Tomar — cozinha caseira portuguesa, prato do dia sempre a bom preço', p:'~10–15€', r:'Bem avaliado'},
+ {n:'Restaurante O Castelo (Vila Nova da Barquinha)', d:'Cozinha regional simples, mesmo junto ao cais de Almourol', p:'~12–18€', r:'Bem avaliado'},
+ {n:'Snack-bar junto ao Cais de Almourol', d:'Sandes, tostas e petiscos rápidos antes/depois da travessia de barco', p:'~5–10€', r:'Opção prática'},
+ {n:'Taberna Antiqvvm (Tomar)', d:'Petiscos e vinhos regionais, preço acessível no centro histórico', p:'~12–20€', r:'Bem avaliado'},
+];
+
+const FOOD_QUALIDADE_PRECO = [
+ {n:'Bela Vista (Tomar)', d:'Cabrito assado lentamente, varanda romântica com vista para o castelo e o rio Nabão — citado como um dos melhores pratos já provados em Portugal por vários bloggers de viagem', p:'~15–22€', r:'Muito recomendado (guias internacionais)'},
+ {n:'Casa das Ratas (Tomar)', d:'Uma das tascas mais antigas de Tomar, doses generosas e preço justo, ambiente único', p:'~12–18€', r:'Recomendado por habitantes locais (Airbnb Guidebooks)'},
+ {n:'Chico Elias (Tomar)', d:'Receitas originais da fundadora desde 1963, forno a lenha, ambiente familiar', p:'~15–22€', r:'Clássico local'},
+];
+
+const FOOD_RECOMENDADOS = [
+ {n:'Ninho do Falcão (Tomar)', d:'Almoço ou jantar — sala com 80 lugares, a mais espaçosa da lista. Cabrito assado, bacalhau, bife na pedra — variedade para todos os gostos', p:'~8–20€', r:'Escolha para grupo grande — mais espaçoso'},
+ {n:'Restaurante Tabuleiro (Tomar)', d:'Almoço — ambiente familiar junto à praça principal, fácil de encontrar com o grupo', p:'~15–20€', r:'Escolha para grupo grande — central'},
+ {n:'Chico Elias (Tomar)', d:'Jantar — forno a lenha, receitas de família desde 1963, ambiente acolhedor para crianças', p:'~15–22€', r:'Escolha para grupo grande — família'},
+ {n:'Calça Perra (Tomar)', d:'Almoço ou jantar — tem pátio exterior (bom para crianças) além da sala elegante', p:'~18–25€', r:'Escolha para grupo grande — pátio'},
+ {n:'Restaurante O Castelo (Vila Nova da Barquinha)', d:'Almoço — mesmo junto ao cais de Almourol, prático logo depois da excursão de barco com o grupo', p:'~12–18€', r:'Escolha para grupo grande — logística'},
 ];
 
 function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
@@ -462,7 +516,7 @@ function renderFood(containerId, items){
   if(!el) return;
   el.innerHTML = items.map(it => `
     <div class="place">
-      <div class="ptext"><div class="pn">${esc(it.n)}</div><div class="pd">${esc(it.d)}</div></div>
+      <div class="ptext"><div class="pn">${esc(it.n)}</div><div class="pd">${esc(it.d)}</div>${it.url ? `<a href="${esc(it.url)}" target="_blank" rel="noopener" style="font-size:11.5px;font-weight:700;color:var(--wine);">🔗 Site/Instagram ↗</a>` : ''}</div>
       <div class="pmeta"><span class="pp">${esc(it.p)}</span><span class="pr">${esc(it.r)}</span></div>
     </div>`).join('');
 }
@@ -472,6 +526,10 @@ document.addEventListener('DOMContentLoaded', () => {
   renderFood('list-tradicional', FOOD_TRADICIONAL);
   renderFood('list-petiscos', FOOD_PETISCOS);
   renderFood('list-peixerio', FOOD_PEIXERIO);
+  renderFood('list-carne', FOOD_CARNE);
+  renderFood('list-barato', FOOD_BARATO);
+  renderFood('list-qualidade-preco', FOOD_QUALIDADE_PRECO);
+  renderFood('list-recomendados', FOOD_RECOMENDADOS);
   renderFood('list-doces', FOOD_DOCES);
 
   document.querySelectorAll('#tabbar > .tab').forEach(tab => {
